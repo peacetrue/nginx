@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# cmake/prepare
+
+rm -rf cmake-build-debug CMakeLists.txt Makefile objs
+
+cd auto || exit
+ln ../cmake/cmake cmake # 重复执行无影响
+if ! grep 'auto/cmake' configure > /dev/null; then # 防止重复添加
+  # 在 auto/make 前面添加 auto/cmake
+  sed -i '/. auto\/make/i\. auto\/cmake' configure;
+fi
+
+cd .. || exit
+# macOS 安装 pcre：brew install pcre
+./auto/configure --prefix=./ --with-pcre=/usr/local/Cellar/pcre/8.45
+
+sed -i 's/8.45 /8.45\/include /g' CMakeLists.txt
+sed -i 's/.libs/lib/g' CMakeLists.txt
+
+cd cmake-build-debug
+mkdir logs
+ln -s ../conf conf
+ln -s ../docs/html html

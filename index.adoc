@@ -1,0 +1,29 @@
+= 简介
+
+本仓库 fork 至 https://github.com/nginx/nginx[官方 nginx^]，添加 CMake 支持，以便在 CLion 中调试。
+
+== 源码更新
+
+在原仓库的基础上添加了 cmake 目录和 index.adoc、.gitignore 文件。
+
+== 快速开始
+
+[source%nowrap,bash]
+----
+# 检出仓库
+git clone https://github.com/nginx/nginx
+# 进入仓库目录
+cd nginx
+# 初始化 CMake 项目环境
+cmake/prepare
+# 使用 CLion 打开项目
+# 调试 src/core/nginx.c 中的 main 函数
+----
+
+== 参考
+
+* https://blog.csdn.net/nuan_feng/article/details/132048035[nginx源码解析-clion编译^]
+* https://blog.csdn.net/u013372487/article/details/106751033[mac 上编译安装nginx^]
+
+
+
