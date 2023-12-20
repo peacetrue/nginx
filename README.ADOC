@@ -4,7 +4,7 @@
 
 == 源码更新
 
-在原仓库的基础上添加了 cmake 目录和 README.ADOC、.gitignore 文件。
+在原仓库的基础上添加了 cmake 目录和 README.adoc、.gitignore 文件。
 
 == 快速开始
 
